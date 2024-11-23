@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  flask-app:
+    image: flask-serf-app
+    build:
+      context: .
+    ports:
+      - "5001-5003:5000"
+    deploy:
+      replicas: 3
+    networks:
+      - serf-network
+    command: >
+      sh -c "serf agent -tag role=web & python app.py"
+
+networks:
+  serf-network:
+    driver: bridge
