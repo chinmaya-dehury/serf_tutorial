@@ -7,8 +7,9 @@ RUN apt-get update && apt-get install -y wget unzip && \
 # Set up the working directory
 WORKDIR /app
 
-# Copy the Flask app
+# Copy the Flask app and handler scripts
 COPY app.py /app
+COPY event-handler.sh /app
 
 # Install Flask
 RUN pip install flask

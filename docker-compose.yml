@@ -10,7 +10,7 @@ services:
         aliases:
           - flask-app
     command: >
-      sh -c "serf agent -tag role=web -bind=0.0.0.0:7946 -join=flask-app & python app.py"
+      sh -c "serf agent -tag role=web -bind=0.0.0.0:7946 -join=flask-app -event-handler=/app/event-handler.sh & python app.py"
 
 networks:
   serf-network:
