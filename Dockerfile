@@ -21,6 +21,7 @@ RUN wget https://releases.hashicorp.com/serf/0.8.2/serf_0.8.2_linux_amd64.zip &&
 
 # Expose the port
 EXPOSE 5000
+EXPOSE 7946
 
 # Start the Flask app
 CMD ["python", "app.py"]

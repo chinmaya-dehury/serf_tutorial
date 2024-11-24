@@ -1,18 +1,16 @@
-version: '3.8'
-
 services:
   flask-app:
     image: flask-serf-app
     build:
       context: .
     ports:
-      - "5001-5003:5000"
-    deploy:
-      replicas: 3
+      - "5000"
     networks:
-      - serf-network
+      serf-network:
+        aliases:
+          - flask-app
     command: >
-      sh -c "serf agent -tag role=web & python app.py"
+      sh -c "serf agent -tag role=web -bind=0.0.0.0:7946 -join=flask-app & python app.py"
 
 networks:
   serf-network:
