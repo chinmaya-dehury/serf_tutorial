@@ -12,6 +12,10 @@ case "$SERF_EVENT" in
       echo "Service is running on $(hostname)"
     fi
     ;;
+  user)
+    echo "User event received: $SERF_USER_EVENT"
+    echo "Event payload: $SERF_PAYLOAD"
+    ;;
   *)
     echo "Received event: $SERF_EVENT"
     echo "Event payload: $SERF_PAYLOAD"
